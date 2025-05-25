@@ -21,21 +21,6 @@ This TypeScript script is designed to collect product data from an imaginary onl
     *   `processSubcategory()` fetches products for that specific subcategory (`${BASE_URL}/products?subcategory={subcategory.id}`).
 3.  All products are collected by `collectProductData()` and the `main()` function orchestrates the process, logging the total count.
 
-## Prerequisites
-
-*   A TypeScript execution environment (e.g., Node.js with `ts-node`, or Deno).
-*   The `fetch` API must be available.
-
-## How to Run
-
-1.  Save the code as `product_data_collector.ts`.
-2.  Ensure your TypeScript environment is set up.
-3.  Execute the script, for example:
-    ```bash
-    ts-node product_data_collector.ts
-    ```
-    Alternatively, compile to JavaScript first (`tsc product_data_collector.ts`) and then run (`node product_data_collector.js`).
-
 ## Key Considerations
 
 *   **API Structure**: This script assumes a specific API design. The `BASE_URL` and endpoint paths (`/categories`, `/products`, etc.) must align with the target API.
