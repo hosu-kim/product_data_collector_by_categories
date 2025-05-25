@@ -1,4 +1,4 @@
-# Product Data Collector By Categories
+# Product Data Collector By Categories From API
 
 This TypeScript script is designed to collect product data from an imaginary online market API. It systematically fetches product categories and then retrieves all associated products, handling cases where categories have a large number of items by exploring subcategories.
 
