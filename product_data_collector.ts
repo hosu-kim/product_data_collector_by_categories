@@ -1,7 +1,7 @@
 /*
 file: product_data_collector.ts
 decription:
-created: 2025-05-25 17∶11∶52 UTC
+created: 2025-05-25 16∶11∶52 UTC
 author: hosu-kim
 */
 
