@@ -14,11 +14,11 @@ This TypeScript script is designed to collect product data from an imaginary onl
 
 ## How it Works Briefly
 
-1.  The script starts by calling `fetchCategoryList()` to get main categories from `${BASE_URL}/categories`.
+1.  The script starts by calling `fetchCategoryList()` to get main categories from `${ BASE_URL }/categories`.
 2.  For each `category`, `processCategory()` is called:
-    *   It first checks if all products for the category can be fetched in one go (`${BASE_URL}/products?category={category.id}`).
-    *   If not (i.e., `totalProducts > limit`), it fetches subcategories (`${BASE_URL}/categories/{category.id}/subcategories`) and then calls `processSubcategory()` for each.
-    *   `processSubcategory()` fetches products for that specific subcategory (`${BASE_URL}/products?subcategory={subcategory.id}`).
+    *   It first checks if all products for the category can be fetched in one go (`${ BASE_URL }/products?category={ category.id }`).
+    *   If not (i.e., `totalProducts > limit`), it fetches subcategories (`${ BASE_URL }/categories/{ category.id }/subcategories`) and then calls `processSubcategory()` for each.
+    *   `processSubcategory()` fetches products for that specific subcategory (`${ BASE_URL }/products?subcategory={ subcategory.id }`).
 3.  All products are collected by `collectProductData()` and the `main()` function orchestrates the process, logging the total count.
 
 ## Key Considerations
