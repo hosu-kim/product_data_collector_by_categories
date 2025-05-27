@@ -55,7 +55,7 @@ async function fetchJSON<T>(url: string, errorMessagePrefix: string = 'Error fet
 	const response = await fetch(url);
 	if (!response.ok) {
 		// Attempt to get more detailed error information from the response body
-		const errorText = await response.text().catch(() => 'Could not read error response text.');
+		const errorText: string = await response.text().catch(() => 'Could not read error response text.');
 		throw new Error(`${ errorMessagePrefix } (${ url }): HTTP status ${ response.status }. Response: ${ errorText }`);
 	}
 	return response.json() as Promise<T>; // Assumes the response will be valid JSON of type T
