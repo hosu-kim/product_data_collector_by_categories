@@ -52,7 +52,7 @@ interface CategoryData {
  */
 async function fetchJSON<T>(url: string, errorMessagePrefix: string = 'Error fetching data from API'): Promise<T> {
 	console.log(`Fetching data from: ${ url }`);
-	const response = await fetch(url);
+	const response: Response = await fetch(url);
 	if (!response.ok) {
 		// Attempt to get more detailed error information from the response body
 		const errorText: string = await response.text().catch(() => 'Could not read error response text.');
