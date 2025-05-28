@@ -91,18 +91,18 @@ async function processSubcategory(subcategory: CategoryList, allProducts: Produc
 	const subDataUrl: string = `${ BASE_URL }/products?subcategory=${ subcategory.id }`;
 
 	// Fetch product data for this subcategory
-	const subcategoryProductData = await fetchJSON<CategoryData>(subDataUrl, `Failed to fetch products for subcategory ${ subcategory.name }`);
+	const subcategoryData = await fetchJSON<CategoryData>(subDataUrl, `Failed to fetch products for subcategory ${ subcategory.name }`);
 
-	console.log(`Subcategory ${ subcategory.name }: Total products=${ subcategoryProductData.totalProducts}, Fetched in this call=${ subcategoryProductData.products.length }, API reported count = ${ subcategoryProductData.count }, Limit = ${ subcategoryProductData.limit }`);
-	allProducts.push(...subcategoryProductData.products); // Add fetched products to the main list
+	console.log(`Subcategory ${ subcategory.name }: Total products = ${ subcategoryData.totalProducts}, Fetched in this call = ${ subcategoryData.products.length }, API reported count = ${ subcategoryData.count }, Limit = ${ subcategoryData.limit }`);
+	allProducts.push(...subcategoryData.products); // Add fetched products to the main list
 
 	// Log whether all products were fetched or if pagination might be needed (though not implemented here)
-	if (subcategoryProductData.totalProducts <= subcategoryProductData.limit) {
-		console.log(`All data fetched for subcategory ${ subcategory.name }. ${ subcategoryProductData.products.length } products added.`);
+	if (subcategoryData.totalProducts <= subcategoryData.limit) {
+		console.log(`All data fetched for subcategory ${ subcategory.name }. ${ subcategoryData.products.length } products added.`);
 	} else {
 		// This indicates that the API might have more products than what was returned in this single call.
 		// The current logic only fetches the first page of products if totalProducts > limit.
-		console.log(`Total products for subcategory ${ subcategory.name } (${ subcategoryProductData.totalProducts }) might exceed call limit (${subcategoryProductData.limit }). Added ${ subcategoryProductData.products.length } products (potentially first page).`);
+		console.log(`Total products for subcategory ${ subcategory.name } (${ subcategoryData.totalProducts }) might exceed call limit (${subcategoryData.limit }). Added ${ subcategoryData.products.length } products (potentially first page).`);
 	}
 }
 
