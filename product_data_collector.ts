@@ -71,7 +71,7 @@ async function fetchCategoryList(): Promise<CategoryList[]> {
 	try {
 		const url: string = `${ BASE_URL }/categories`;
 		const categoryList: CategoryList[] = await fetchJSON<CategoryList[]>(url, 'Failed to fetch category list');
-		console.log(`Successfully fetched ${ categoryList.length } categories.`);
+		console.log(`Successfully fetched: ${ categoryList.length } categories.`);
 		return categoryList;
 	} catch (error) {
 		// Log the specific error and re-throw it to be handled by the caller (main function)
